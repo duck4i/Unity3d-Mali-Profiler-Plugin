@@ -1,0 +1,42 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile files('libs/classes.jar')
+}
+
+//task to delete the old jar
+task deleteOldJar(type: Delete) {
+    delete 'release/MaliUnityPlugin.aar'
+}
+
+//task to export contents as jar
+task exportJar(type: Copy) {
+    from('build/outputs/aar/')
+    into('release/')
+    include('maliprofileplugin-release.aar')
+    ///Rename the jar
+    rename('maliprofileplugin-release.aar', 'MaliUnityPlugin.aar')
+}
+
+exportJar.dependsOn(deleteOldJar, build)
