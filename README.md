@@ -23,6 +23,12 @@ Packages directory in this repo contains already compiled unity plugins.
 Just double click on .unitypackage file to istall the plugin to your Unity3D project.
 
 
+### Get Mali GPU Debugger
+
+More info on the GPU debugger itself can be found here:
+http://malideveloper.arm.com/resources/tools/mali-graphics-debugger/
+
+
 #### Alternative: Custom activity
 
 As an alternative, if you dont want modify your C# code (or already have a exported Android build) you can modify your AndroidManifest.xml and replace com.unity3d.player.UnityPlayerActivity with Mali plugin activity like in example bellow.
