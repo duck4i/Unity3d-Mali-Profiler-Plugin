@@ -14,9 +14,13 @@ Plugins.MALI.MaliProfilerPlugin.Load();
 
 ```
 
+You can always check the example script in Unity3DPLugin project included in this repo.
+
 ### Get the plugin
 
-Latest release: @TODO
+Packages directory in this repo contains already compiled unity plugins.
+
+Just double click on .unitypackage file to istall the plugin to your Unity3D project.
 
 
 #### Alternative: Custom activity
